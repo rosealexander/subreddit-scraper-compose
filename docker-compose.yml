@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./postgresql/Dockerfile.postgresql
+    container_name: subreddit_scraper_postgres
+    environment:
+      - POSTGRES_USER=$PSQL_USER
+      - POSTGRES_PASSWORD=$PSQL_PASSWORD
+    healthcheck:
+      test: "exit 0"
+    networks:
+      - reddit-scraper-tier
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    
+  reddit:
+    build:
+      context: .
+      dockerfile: ./reddit/Dockerfile.reddit
+    container_name: subreddit_scraper_reddit
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - KWARGS
+      - REDDIT_CLIENT_SECRET=$REDDIT_CLIENT_SECRET
+      - REDDIT_CLIENT_ID=$REDDIT_CLIENT_ID
+      - REDDIT_USER_AGENT=$REDDIT_USER_AGENT
+      - PSQL_USER=$PSQL_USER
+      - PSQL_PASSWORD=$PSQL_PASSWORD
+      - PSQL_HOST=postgres
+      - PSQL_PORT=5432
+      - PSQL_DATABASE=reddit
+    networks:
+      - reddit-scraper-tier
+    restart: unless-stopped
+
+networks:
+  reddit-scraper-tier:
+    driver: bridge
+

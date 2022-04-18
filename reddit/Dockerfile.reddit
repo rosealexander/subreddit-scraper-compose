@@ -1,0 +1,17 @@
+FROM python:3.10-alpine
+
+RUN apk add git
+RUN git clone https://github.com/rosealexander/subreddit-scraper.git
+RUN apk del git
+
+RUN mkdir subreddit_scraper
+RUN mv /subreddit-scraper/subredditscraper /subreddit_scraper && mv /subreddit-scraper/requirements.txt /subreddit_scraper
+RUN rm -r subreddit-scraper
+
+WORKDIR subreddit_scraper
+
+RUN apk add --no-cache build-base
+RUN pip3 install --no-cache-dir -r requirements.txt
+RUN apk del build-base
+
+CMD [ "sh", "-c", "python3 ./subredditscraper/subreddit_scraper.py $KWARGS" ]
