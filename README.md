@@ -3,7 +3,7 @@
 ### Docker Compose for [subreddit-scraper](https://github.com/rosealexander/subreddit-scraper)
 
 #### Setup
-- Assign the following environment variables.
+Assign the following environment variables and run `docker compose up`
 ```
 REDDIT_CLIENT_SECRET  Reddit bot secret key  - REQUIRED
 REDDIT_CLIENT_ID      Reddit bot client ID   - REQUIRED
