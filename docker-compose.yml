@@ -5,24 +5,21 @@ services:
     build:
       context: .
       dockerfile: ./postgresql/Dockerfile.postgresql
-    container_name: subreddit_scraper_postgres
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
-      - PORT=5432
     healthcheck:
       test: "exit 0"
     networks:
       - reddit-scraper-tier
     ports:
-      - 5432:$PORT
+      - $HOST_PORT:5432
     restart: unless-stopped
     
   reddit:
     build:
       context: .
       dockerfile: ./reddit/Dockerfile.reddit
-    container_name: subreddit_scraper_reddit
     depends_on:
       postgres:
         condition: service_healthy
