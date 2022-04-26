@@ -9,7 +9,7 @@ REDDIT_CLIENT_ID        Reddit bot client ID   - REQUIRED
 REDDIT_USER_AGENT       Reddit User Agent      - REQUIRED (check subreddit-scraper README for more information)
 PSQL_USER               PostgreSQL username    - REQUIRED
 PSQL_PASSWORD           PostgreSQL password    - REQUIRED
-KWARGS                  The following OPTIONAL arguments can be passed using the `KWARGS` environment variable.
+KWARGS                  The following OPTIONAL arguments can be passed with the `KWARGS` environment variable.
                         --subreddit               The subreddits to observe, multiples allowed, defaults to r/all.
                         --disable-submissions     Disables submission collection.
                         --disable-comments        Disables comment collection.
