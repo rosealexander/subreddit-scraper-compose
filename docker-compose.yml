@@ -7,14 +7,15 @@ services:
       dockerfile: ./postgresql/Dockerfile.postgresql
     container_name: subreddit_scraper_postgres
     environment:
-      - POSTGRES_USER=$PSQL_USER
-      - POSTGRES_PASSWORD=$PSQL_PASSWORD
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - PORT=5432
     healthcheck:
       test: "exit 0"
     networks:
       - reddit-scraper-tier
     ports:
-      - 5432:${PSQL_PORT:5432}
+      - 5432:$PORT
     restart: unless-stopped
     
   reddit:
@@ -27,14 +28,14 @@ services:
         condition: service_healthy
     environment:
       - KWARGS
-      - REDDIT_CLIENT_SECRET=$REDDIT_CLIENT_SECRET
-      - REDDIT_CLIENT_ID=$REDDIT_CLIENT_ID
-      - REDDIT_USER_AGENT=$REDDIT_USER_AGENT
-      - PSQL_USER=$PSQL_USER
-      - PSQL_PASSWORD=$PSQL_PASSWORD
-      - PSQL_HOST=postgres
-      - PSQL_PORT=${PSQL_PORT:5432}
-      - PSQL_DATABASE=reddit
+      - REDDIT_CLIENT_SECRET
+      - REDDIT_CLIENT_ID
+      - REDDIT_USER_AGENT
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DATABASE=reddit
     networks:
       - reddit-scraper-tier
     restart: unless-stopped
