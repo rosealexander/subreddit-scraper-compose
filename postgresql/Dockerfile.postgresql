@@ -3,4 +3,3 @@ FROM postgres:14.2-alpine
 RUN apk add wget
 RUN wget https://raw.githubusercontent.com/rosealexander/subreddit-scraper/main/pgdump.sql -O /docker-entrypoint-initdb.d/pgdump.sql
 RUN apk del wget
-
