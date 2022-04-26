@@ -14,7 +14,7 @@ services:
     networks:
       - reddit-scraper-tier
     ports:
-      - 5432:5432
+      - 5432:${PSQL_PORT:5432}
     restart: unless-stopped
     
   reddit:
@@ -33,7 +33,7 @@ services:
       - PSQL_USER=$PSQL_USER
       - PSQL_PASSWORD=$PSQL_PASSWORD
       - PSQL_HOST=postgres
-      - PSQL_PORT=5432
+      - PSQL_PORT=${PSQL_PORT:5432}
       - PSQL_DATABASE=reddit
     networks:
       - reddit-scraper-tier
