@@ -23,5 +23,5 @@ KWARGS                The following OPTIONAL arguments can be passed using the `
 #### License
 Distributed under the MIT License. See `LICENSE` for more information.
 
-[license-shield]: https://img.shields.io/github/license/rosealexander/subreddit-scraper.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/rosealexander/subreddit-scraper-compose.svg?style=for-the-badge
 [license-url]: https://github.com/rosealexander/subreddit-scraper/blob/master/LICENSE
