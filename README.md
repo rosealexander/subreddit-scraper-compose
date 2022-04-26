@@ -19,7 +19,6 @@ KWARGS                The following OPTIONAL arguments can be passed using the `
                       --update-threshold        The maximum duration in hours to record score per submission or comment, defaults to 24.
 ```
 
-#### License
 Distributed under the MIT License. See `LICENSE` for more information.
 
 [license-shield]: https://img.shields.io/github/license/rosealexander/subreddit-scraper-compose.svg?style=for-the-badge
