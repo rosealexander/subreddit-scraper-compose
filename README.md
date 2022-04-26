@@ -7,9 +7,9 @@ Assign the following environment variables and run `docker-compose up`
 REDDIT_CLIENT_SECRET    Reddit bot secret key  - REQUIRED
 REDDIT_CLIENT_ID        Reddit bot client ID   - REQUIRED
 REDDIT_USER_AGENT       Reddit User Agent      - REQUIRED (check subreddit-scraper README for more information)
-PSQL_USER               PostgreSQL username    - REQUIRED
-PSQL_PASSWORD           PostgreSQL password    - REQUIRED
-PSQL_PORT               PostgreSQL port        - OPTIONAL, default is 5432
+POSTGRES_USER           PostgreSQL username    - REQUIRED
+POSTGRES_PASSWORD       PostgreSQL password    - REQUIRED
+POSTGRES_PORT           PostgreSQL port        - OPTIONAL, default is 5432
 KWARGS                  The following OPTIONAL arguments can be passed with the `KWARGS` environment variable.
                         --subreddit               The subreddits to observe, multiples allowed, defaults to r/all.
                         --disable-submissions     Disables submission collection.
