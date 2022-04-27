@@ -1,5 +1,3 @@
-[![MIT License][license-shield]][license-url]
-
 ### Docker Compose for [subreddit-scraper](https://github.com/rosealexander/subreddit-scraper)
 
 Assign the following environment variables and run `docker-compose up`
@@ -20,7 +18,7 @@ KWARGS                  The following OPTIONAL arguments can be used with `KWARG
                         --update-threshold        The maximum duration in hours to record score per submission or comment, defaults to 24.
 ```
 
-Distributed under the MIT License. See `LICENSE` for more information.
+[![MIT License][license-shield]][license-url]
 
 [license-shield]: https://img.shields.io/github/license/rosealexander/subreddit-scraper-compose.svg?style=for-the-badge
 [license-url]: https://github.com/rosealexander/subreddit-scraper/blob/master/LICENSE
